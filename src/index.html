@@ -40,6 +40,288 @@
       property="og:image"
       content="https://res.cloudinary.com/dmwfd0zhh/image/upload/v1625786788/Portfolio/Frame_5_lchlvc.jpg"
     />
+    
+
+
+
+  <style>
+    .hometech {
+      position: relative;
+      padding: 120px 0;
+      overflow: hidden;
+      background-color: #111;
+      color: #fff;
+    }
+    
+    .hometechleft {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .techtitle {
+      font-size: 3.5rem;
+      line-height: 1;
+      font-weight: 500;
+      margin-bottom: 4rem;
+      color: #fff;
+    }
+    
+    .techgrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1000px;
+    }
+    
+    .techitem {
+      position: relative;
+      padding: 1.5rem;
+      border-radius: 8px;
+      background-color: #1a1a1a;
+      border: 1px solid #333;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      cursor: pointer;
+      overflow: hidden;
+    }
+    
+    .techitem:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 0%, transparent 50%, rgba(255, 102, 0, 0.15) 150%);
+      z-index: 0;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      opacity: 0;
+    }
+    
+    .techitem:hover {
+      transform: translateY(-12px) scale(1.03);
+      background-color: #222;
+      box-shadow: 0 15px 30px rgba(255, 102, 0, 0.2), 0 0 0 1px rgba(255, 102, 0, 0.1);
+      border-color: #ff6600;
+    }
+    
+    .techitem:hover:before {
+      opacity: 1;
+    }
+    
+    .techitem:hover .tech-icon {
+      transform: scale(1.2) rotate(10deg);
+      background-color: #ff6600;
+      color: #000;
+      box-shadow: 0 0 20px rgba(255, 102, 0, 0.6);
+    }
+    
+    .techitem:hover .tech-sparkle {
+      opacity: 1;
+    }
+    
+    .tech-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .tech-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      border-radius: 50%;
+      background-color: #333;
+      color: #aaa;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    .tech-name {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+    
+    .techitem:hover .tech-name {
+      color: #ff6600;
+    }
+    
+    .tech-desc {
+      font-size: 0.9rem;
+      color: #aaa;
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .tech-sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: #ff6600;
+      box-shadow: 0 0 10px 2px rgba(255, 102, 0, 0.8);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .tech-sparkle:nth-child(1) {
+      top: 20%;
+      left: 10%;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .tech-sparkle:nth-child(2) {
+      top: 70%;
+      left: 80%;
+      animation: float 4s ease-in-out infinite 1s;
+    }
+    
+    .tech-sparkle:nth-child(3) {
+      top: 40%;
+      left: 90%;
+      animation: float 3.5s ease-in-out infinite 0.5s;
+    }
+    
+    .hometech-orbits {
+      position: absolute;
+      top: 0;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      opacity: 0.2;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .orbit {
+      position: absolute;
+      border: 1px dashed rgba(255, 102, 0, 0.3);
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      animation: rotate 20s linear infinite;
+    }
+    
+    .orbit:nth-child(2) {
+      width: 80%;
+      height: 80%;
+      top: 10%;
+      left: 10%;
+      animation-duration: 15s;
+      animation-direction: reverse;
+    }
+    
+    .orbit:nth-child(3) {
+      width: 60%;
+      height: 60%;
+      top: 20%;
+      left: 20%;
+      animation-duration: 10s;
+    }
+    
+    .tech-progress {
+      margin-top: 0.75rem;
+      height: 4px;
+      background-color: #333;
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .tech-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #ff6600, #ff9900);
+      width: 0;
+      transition: width 1s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+    }
+    
+    .tech-progress-bar:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 10px;
+      height: 100%;
+      background: #fff;
+      opacity: 0.5;
+      filter: blur(3px);
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-10px) scale(1.5);
+      }
+    }
+    
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+    }
+    
+    .hometech-line {
+      position: relative;
+      height: 1px;
+      width: 100%;
+      background-color: #333;
+      margin-top: 120px;
+    }
+    
+    .hometech-line span {
+      position: absolute;
+      height: 100%;
+      width: 0;
+      left: 0;
+      top: 0;
+      background: linear-gradient(90deg, #ff6600, #ff9900);
+      transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
+    }
+    
+    .hometech-line.animate span {
+      width: 100%;
+    }
+    
+    .tech-particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background-color: #ff6600;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 2;
+      box-shadow: 0 0 6px 2px rgba(255, 102, 0, 0.4);
+      transition: opacity 0.3s ease;
+    }
+  </style>
 
     <script
       type="text/javascript"
@@ -504,6 +786,143 @@
         </p>
       </section>
 
+      <section class="hometech">
+        <div class="hometechleft">
+          <h2 class="techtitle">
+            <span>TECH</span><br />
+            <span>STACK</span>
+          </h2>
+          <div class="techgrid">
+            <div class="techitem" data-fade-in>
+              <div class="tech-sparkle"></div>
+              <div class="tech-sparkle"></div>
+              <div class="tech-sparkle"></div>
+              <div class="tech-header">
+                <div class="tech-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="tech-name">React.js</div>
+              </div>
+              <div class="tech-desc">Frontend library for building interactive user interfaces with component-based architecture.</div>
+              <div class="tech-progress">
+                <div class="tech-progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+      
+            <div class="techitem" data-fade-in>
+              <div class="tech-sparkle"></div>
+              <div class="tech-sparkle"></div>
+              <div class="tech-sparkle"></div>
+              <div class="tech-header">
+                <div class="tech-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2z"></path>
+                  </svg>
+                </div>
+                <div class="tech-name">Three.js</div>
+              </div>
+              <div class="tech-desc">3D graphics library for creating immersive web experiences and interactive animations.</div>
+              <div class="tech-progress">
+                <div class="tech-progress-bar" style="width: 85%"></div>
+              </div>
+            </div>
+      
+            <div class="techitem" data-fade-in>
+              <div class="tech-sparkle"></div>
+              <div class="tech-sparkle"></div>
+              <div class="tech-sparkle"></div>
+              <div class="tech-header">
+                <div class="tech-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                </div>
+                <div class="tech-name">GSAP</div>
+              </div>
+              <div class="tech-desc">Animation library for creating smooth, performant animations and interactive effects.</div>
+              <div class="tech-progress">
+                <div class="tech-progress-bar" style="width: 80%"></div>
+              </div>
+            </div>
+      
+            <div class="techitem" data-fade-in>
+              <div class="tech-sparkle"></div>
+              <div class="tech-sparkle"></div>
+              <div class="tech-sparkle"></div>
+              <div class="tech-header">
+                <div class="tech-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                    <path d="M2 2l7.586 7.586"></path>
+                    <circle cx="11" cy="11" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="tech-name">Next.js</div>
+              </div>
+              <div class="tech-desc">React framework that enables server-side rendering and generating static websites.</div>
+              <div class="tech-progress">
+                <div class="tech-progress-bar" style="width: 88%"></div>
+              </div>
+            </div>
+      
+            <div class="techitem" data-fade-in>
+              <div class="tech-sparkle"></div>
+              <div class="tech-sparkle"></div>
+              <div class="tech-sparkle"></div>
+              <div class="tech-header">
+                <div class="tech-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                  </svg>
+                </div>
+                <div class="tech-name">Tailwind CSS</div>
+              </div>
+              <div class="tech-desc">Utility-first CSS framework for rapidly building custom user interfaces.</div>
+              <div class="tech-progress">
+                <div class="tech-progress-bar" style="width: 95%"></div>
+              </div>
+            </div>
+      
+            <div class="techitem" data-fade-in>
+              <div class="tech-sparkle"></div>
+              <div class="tech-sparkle"></div>
+              <div class="tech-sparkle"></div>
+              <div class="tech-header">
+                <div class="tech-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                    <line x1="16" y1="8" x2="2" y2="22"></line>
+                    <line x1="17.5" y1="15" x2="9" y2="15"></line>
+                  </svg>
+                </div>
+                <div class="tech-name">Framer Motion</div>
+              </div>
+              <div class="tech-desc">Production-ready motion library for React to create fluid animations with ease.</div>
+              <div class="tech-progress">
+                <div class="tech-progress-bar" style="width: 78%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="hometech-orbits">
+          <div class="orbit"></div>
+          <div class="orbit"></div>
+          <div class="orbit"></div>
+        </div>
+      
+        <span class="hometech-line">
+          <span></span>
+        </span>
+      </section>
+      
       <section class="home__projects">
         <span class="home__projects__line right">
           <span></span>
@@ -716,131 +1135,7 @@
         </span>
       </section>
 
-      <section class="home__awards">
-        <div class="home__awards__left">
-          <h2 class="awards__title">
-            <span>AWARDS X </span><br />
-            <span>RECOGNITION</span>
-          </h2>
-          <div class="home__awards__table">
-            <div class="awards__item" data-fade-in>
-              Webby ⏤ 2024 Awards Honoree
-            </div>
-            <div class="awards__item" data-fade-in>
-              Awwwards ⏤ Site of the Day (x3)
-            </div>
-            <div class="awards__item" data-fade-in>
-              Awwwards ⏤ Developer Award (x3)
-            </div>
-            <div class="awards__item" data-fade-in>
-              Awwwards ⏤ Jury Member 2023
-            </div>
-            <div class="awards__item" data-fade-in>
-              Designnominees ⏤ Site of the Day
-            </div>
-
-            <div class="awards__item" data-fade-in>
-              2022 Figma Community Award ⏤ Nominee
-            </div>
-            <div class="awards__item" data-fade-in>Maxibestof</div>
-            <div class="awards__item" data-fade-in>Thegallery.io (x2)</div>
-            <div class="awards__item" data-fade-in>Klikkentheke ⏤ No 2326</div>
-            <div class="awards__item" data-fade-in>Klikkentheke ⏤ No 2492</div>
-            <div class="awards__item" data-fade-in>
-              The Ultra Index® ⏤ For storytelling experience
-            </div>
-            <div class="awards__item" data-fade-in>MUZLI</div>
-          </div>
-        </div>
-
-        <div class="home__awards__right">
-          <div class="home__awards__stack" data-fade-in>
-            <h2 class="home__content__title">Interests</h2>
-            <p class="home__content__desc">
-              Art Direction, Brand Strategy, Creative Development, E-Commerce,
-              Webflow, 3D/Augmented Reality, Web3 <br />
-              <a
-                href="https://github.com/oluwadareseyi"
-                target="_blank"
-                rel="noopener noreferrer"
-                >See my Github</a
-              >
-            </p>
-          </div>
-
-          <div class="home__awards__ice" data-fade-in>
-            <h2 class="home__content__title">ICEBREAKERS</h2>
-            <p class="home__content__desc">
-              I listen to Electronic and Alt music all the time, you can see
-              what I'm currently listening to on this
-              <a
-                href="https://music.seyi.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >MICROSITE.</a
-              >
-              I like traveling and good food (work with me so I can fund this).
-              <button class="contact-scroll">GET IN TOUCH</button> to know more
-              about me.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="home__contact">
-        <p class="home__contact__desc">
-          Got a question, proposal or project or want to work together on
-          something? Feel free to reach out.
-        </p>
-        <div class="line-wrapper">
-          <span class="home__projects__line left">
-            <span></span>
-          </span>
-        </div>
-
-        <div class="marquee">
-          <a
-            href="mailto:oluwadareseyii@gmail.com?subject=Lets%20work%20together!&body=Hello%2C%20I%20think%20we%20need%20you%20to%20work%20on%2Fcollaborate%20this%20particular%20product...%20Reach%20out%20as%20soon%20as%20you%20can."
-            class="marquee__wrap"
-          >
-            <div class="marquee__inner">
-              <span aria-hidden="true" class="inner-span">
-                <span
-                  class="slide-up"
-                  data-content="LET’S TALK — LET’S COLLABORATE — SAY HELLO — WANNA BE STARTING
-                SOMETHING?"
-                  aria-hidden="true"
-                ></span>
-                LET’S TALK — LET’S COLLABORATE — SAY HELLO — WANNA BE STARTING
-                SOMETHING?</span
-              >
-              <span class="inner-span">
-                <span
-                  class="slide-up"
-                  data-content="LET’S TALK — LET’S COLLABORATE — SAY HELLO — WANNA BE STARTING
-                SOMETHING?"
-                  aria-hidden="true"
-                ></span>
-                LET’S TALK — LET’S COLLABORATE — SAY HELLO — WANNA BE STARTING
-                SOMETHING?</span
-              >
-            </div>
-          </a>
-        </div>
-
-        <div class="line-wrapper">
-          <span class="home__projects__line right">
-            <span></span>
-          </span>
-        </div>
-
-        <div class="home__contact__email">
-          <button class="email">bhanuu339@gmail.com</button>
-          <div class="to-copy">
-            <span>Click To Copy</span>
-          </div>
-        </div>
-      </section>
+      
 
       <footer class="home__footer" id="js-footer">
         <div class="home__footer__center">

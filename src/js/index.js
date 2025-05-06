@@ -201,4 +201,135 @@ export default class Home {
   }
 }
 
+document.querySelectorAll('.techitem').forEach(item => {
+  for (let i = 0; i < 10; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'tech-particle';
+    particle.style.top = `${Math.random() * 100}%`;
+    particle.style.left = `${Math.random() * 100}%`;
+    item.appendChild(particle);
+  }
+});
+
+// Mouse interaction for tech items
+document.querySelectorAll('.techitem').forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    // Animate progress bar
+    const progressBar = item.querySelector('.tech-progress-bar');
+    const currentWidth = progressBar.style.width;
+    progressBar.style.width = '0';
+    setTimeout(() => {
+      progressBar.style.width = currentWidth;
+    }, 50);
+    
+    // Animate particles
+    const particles = item.querySelectorAll('.tech-particle');
+    particles.forEach(particle => {
+      particle.style.opacity = '1';
+      
+      // Random animation for each particle
+      const duration = 0.5 + Math.random() * 1.5;
+      const delay = Math.random() * 0.3;
+      const x = (Math.random() - 0.5) * 100;
+      const y = (Math.random() - 0.5) * 100;
+      
+      particle.style.transition = `transform ${duration}s ease-out ${delay}s, opacity 0.3s ease`;
+      particle.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  });
+  
+  // Mouse move effect
+  item.addEventListener('mousemove', (e) => {
+    const rect = item.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    
+    // Stronger tilt effect
+    const tiltX = (y - 0.5) * 15;
+    const tiltY = (x - 0.5) * -15;
+    
+    // Apply transform with scale and perspective
+    item.style.transform = `translateY(-12px) scale(1.03) perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+    
+    // Dynamic glow effect that follows cursor
+    const glowX = x * 100;
+    const glowY = y * 100;
+    item.style.boxShadow = `
+      0 15px 30px rgba(255, 102, 0, 0.2),
+      0 0 0 1px rgba(255, 102, 0, 0.1),
+      inset 0 0 60px rgba(255, 102, 0, ${0.1 + x * y * 0.2})
+    `;
+    
+    // Move the tech icon based on cursor position
+    const icon = item.querySelector('.tech-icon');
+    const moveX = (x - 0.5) * 10;
+    const moveY = (y - 0.5) * 10;
+    icon.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.2) rotate(${moveX}deg)`;
+    
+    // Gradient follows mouse
+    item.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, #2a2a2a 0%, #1a1a1a 70%)`;
+  });
+  
+  item.addEventListener('mouseleave', () => {
+    item.style.transform = '';
+    item.style.boxShadow = '';
+    item.style.background = '';
+    
+    const icon = item.querySelector('.tech-icon');
+    icon.style.transform = '';
+    
+    // Reset particles
+    const particles = item.querySelectorAll('.tech-particle');
+    particles.forEach(particle => {
+      particle.style.opacity = '0';
+      particle.style.transform = 'translate(0, 0)';
+    });
+  });
+});
+
+// Animate progress bars on page load
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.tech-progress-bar').forEach(bar => {
+      const width = bar.style.width;
+      bar.style.width = '0';
+      setTimeout(() => {
+        bar.style.width = width;
+      }, 300);
+    });
+    
+    document.querySelector('.hometech-line').classList.add('animate');
+    
+    // Initial animation for orbit elements
+    document.querySelectorAll('.orbit').forEach(orbit => {
+      orbit.style.animation = 'none';
+      orbit.offsetHeight; // Trigger reflow
+      orbit.style.animation = null;
+    });
+  }, 500);
+});
+
+// Intersection Observer for fade-in animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      
+      // Staggered animation for tech items
+      if (entry.target.classList.contains('techitem')) {
+        const delay = Array.from(document.querySelectorAll('.techitem')).indexOf(entry.target) * 0.1;
+        entry.target.style.transitionDelay = `${delay}s`;
+      }
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('[data-fade-in]').forEach(item => {
+  item.style.opacity = '0';
+  item.style.transform = 'translateY(30px)';
+  item.style.transition = 'opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
+  observer.observe(item);
+});
+
 new Home(scroll);
