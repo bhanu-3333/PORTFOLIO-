@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-    <meta name="title" content="Portfolio" />
+    <title>Seyi — Developer</title>
+    <meta name="title" content="Seyi — Developer" />
     <link rel="icon" href="/favicon.ico" />
     <meta
       name="description"
@@ -40,288 +40,6 @@
       property="og:image"
       content="https://res.cloudinary.com/dmwfd0zhh/image/upload/v1625786788/Portfolio/Frame_5_lchlvc.jpg"
     />
-    
-
-
-
-  <style>
-    .hometech {
-      position: relative;
-      padding: 120px 0;
-      overflow: hidden;
-      background-color: #111;
-      color: #fff;
-    }
-    
-    .hometechleft {
-      position: relative;
-      z-index: 2;
-    }
-    
-    .techtitle {
-      font-size: 3.5rem;
-      line-height: 1;
-      font-weight: 500;
-      margin-bottom: 4rem;
-      color: #fff;
-    }
-    
-    .techgrid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      max-width: 1000px;
-    }
-    
-    .techitem {
-      position: relative;
-      padding: 1.5rem;
-      border-radius: 8px;
-      background-color: #1a1a1a;
-      border: 1px solid #333;
-      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-      cursor: pointer;
-      overflow: hidden;
-    }
-    
-    .techitem:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, transparent 0%, transparent 50%, rgba(255, 102, 0, 0.15) 150%);
-      z-index: 0;
-      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-      opacity: 0;
-    }
-    
-    .techitem:hover {
-      transform: translateY(-12px) scale(1.03);
-      background-color: #222;
-      box-shadow: 0 15px 30px rgba(255, 102, 0, 0.2), 0 0 0 1px rgba(255, 102, 0, 0.1);
-      border-color: #ff6600;
-    }
-    
-    .techitem:hover:before {
-      opacity: 1;
-    }
-    
-    .techitem:hover .tech-icon {
-      transform: scale(1.2) rotate(10deg);
-      background-color: #ff6600;
-      color: #000;
-      box-shadow: 0 0 20px rgba(255, 102, 0, 0.6);
-    }
-    
-    .techitem:hover .tech-sparkle {
-      opacity: 1;
-    }
-    
-    .tech-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .tech-icon {
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-right: 1rem;
-      border-radius: 50%;
-      background-color: #333;
-      color: #aaa;
-      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    
-    .tech-name {
-      font-weight: 600;
-      font-size: 1.25rem;
-      color: #fff;
-      transition: color 0.3s ease;
-    }
-    
-    .techitem:hover .tech-name {
-      color: #ff6600;
-    }
-    
-    .tech-desc {
-      font-size: 0.9rem;
-      color: #aaa;
-      line-height: 1.5;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .tech-sparkle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background-color: #ff6600;
-      box-shadow: 0 0 10px 2px rgba(255, 102, 0, 0.8);
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    
-    .tech-sparkle:nth-child(1) {
-      top: 20%;
-      left: 10%;
-      animation: float 3s ease-in-out infinite;
-    }
-    
-    .tech-sparkle:nth-child(2) {
-      top: 70%;
-      left: 80%;
-      animation: float 4s ease-in-out infinite 1s;
-    }
-    
-    .tech-sparkle:nth-child(3) {
-      top: 40%;
-      left: 90%;
-      animation: float 3.5s ease-in-out infinite 0.5s;
-    }
-    
-    .hometech-orbits {
-      position: absolute;
-      top: 0;
-      right: -200px;
-      width: 600px;
-      height: 600px;
-      opacity: 0.2;
-      z-index: 1;
-      pointer-events: none;
-    }
-    
-    .orbit {
-      position: absolute;
-      border: 1px dashed rgba(255, 102, 0, 0.3);
-      border-radius: 50%;
-      width: 100%;
-      height: 100%;
-      animation: rotate 20s linear infinite;
-    }
-    
-    .orbit:nth-child(2) {
-      width: 80%;
-      height: 80%;
-      top: 10%;
-      left: 10%;
-      animation-duration: 15s;
-      animation-direction: reverse;
-    }
-    
-    .orbit:nth-child(3) {
-      width: 60%;
-      height: 60%;
-      top: 20%;
-      left: 20%;
-      animation-duration: 10s;
-    }
-    
-    .tech-progress {
-      margin-top: 0.75rem;
-      height: 4px;
-      background-color: #333;
-      border-radius: 2px;
-      overflow: hidden;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .tech-progress-bar {
-      height: 100%;
-      background: linear-gradient(90deg, #ff6600, #ff9900);
-      width: 0;
-      transition: width 1s cubic-bezier(0.23, 1, 0.32, 1);
-      position: relative;
-    }
-    
-    .tech-progress-bar:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 10px;
-      height: 100%;
-      background: #fff;
-      opacity: 0.5;
-      filter: blur(3px);
-    }
-    
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0) scale(1);
-      }
-      50% {
-        transform: translateY(-10px) scale(1.5);
-      }
-    }
-    
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-    
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 0.6;
-      }
-      50% {
-        transform: scale(1.05);
-        opacity: 1;
-      }
-    }
-    
-    .hometech-line {
-      position: relative;
-      height: 1px;
-      width: 100%;
-      background-color: #333;
-      margin-top: 120px;
-    }
-    
-    .hometech-line span {
-      position: absolute;
-      height: 100%;
-      width: 0;
-      left: 0;
-      top: 0;
-      background: linear-gradient(90deg, #ff6600, #ff9900);
-      transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
-      box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
-    }
-    
-    .hometech-line.animate span {
-      width: 100%;
-    }
-    
-    .tech-particle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background-color: #ff6600;
-      border-radius: 50%;
-      pointer-events: none;
-      opacity: 0;
-      z-index: 2;
-      box-shadow: 0 0 6px 2px rgba(255, 102, 0, 0.4);
-      transition: opacity 0.3s ease;
-    }
-  </style>
 
     <script
       type="text/javascript"
@@ -342,6 +60,64 @@
       type="font/woff2"
       crossorigin
     />
+    <style>
+      html {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+}
+
+.tech-intro {
+  font-size: 2 rem;
+  color: gray;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+  text-align: center;
+  margin-top:50px;
+  margin-left: 70px;
+  font-weight: bolder;
+
+}
+
+
+
+.techitem:hover {
+  background-color: #ff7f00 !important; /* Orange on hover */
+  transition: background-color 0.3s ease;
+}
+
+
+.tagcloud {
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  margin-top: 20px;
+   /* default text color */
+}
+
+.tagcloud--item {
+  transition: color 0.3s ease;
+}
+
+.tagcloud--item:hover {
+  color:  #ff7f00;
+}
+
+/* Optional: Adjust orbit container */
+.hometech-orbits {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+    </style>
 
     <link rel="stylesheet" href="scss/index.scss" />
   </head>
@@ -357,10 +133,19 @@
             >
           </div>
 
-         
+          <div class="nav__folio hide-mobile" nav-anim>
+            <span>
+              Frontend Developer <br />
+              Folio / 2021 — 2024
+            </span>
+          </div>
         </div>
 
-  
+        <div class="home__nav__right">
+          <div class="nav__folio hide-desktop" nav-anim>
+            Frontend Developer <br />
+            Folio / 2021 — 2024
+          </div>
 
           <div class="nav__availability" nav-anim></div>
 
@@ -429,9 +214,15 @@
               </h1>
               <div class="bottom__right">
                 <p class="hero__paragraph">
-                  <span class="first-word"><strong>About</strong></span> &nbsp; Hi, I’m <strong>Udaya Bhanu</strong>, a developer passionate about creating interactive digital experiences. I specialize in <strong>frontend development</strong>, <strong>UI/UX design</strong>, and <strong>game development</strong>, with a focus on building <strong>mobile apps</strong>. I enjoy exploring new technologies and always strive to deliver seamless and engaging user experiences. I’m constantly looking for new projects and opportunities to grow and collaborate.
+                  <span class="first-word">About</span> &nbsp; I am a developer
+                  based in Manchester, UK focused on creating interactive
+                  digital experiences on the web, working with brands and
+                  industry leaders such as <span>Google Fonts,</span>
+                  <span>Paystack,</span> <span>Heva Health,</span>
+                  <span>Disney,</span> <span>Jelly,</span> and
+                  <span>Null</span>
+                  amongst others to achieve this.
                 </p>
-                
                 <div class="hero__scroll">
                   <p>Scroll down</p>
                   <div class="c-infinite">
@@ -763,7 +554,8 @@
       <section class="home__content">
         <h2 class="home__content__title">COMMUNITY CONTRIBUTIONS</h2>
         <p class="home__content__desc">
-          I’ve built a few tools and resources for designers and developers like myself — feel free to check out projects like
+          I have worked on some resources and tools; mostly for designers and
+          developers like myself, you should checkout
           <a
             href="https://www.figma.com/community/plugin/943569346291474506/Tints-and-Shades"
             target="_blank"
@@ -786,143 +578,6 @@
         </p>
       </section>
 
-      <section class="hometech">
-        <div class="hometechleft">
-          <h2 class="techtitle">
-            <span>TECH</span><br />
-            <span>STACK</span>
-          </h2>
-          <div class="techgrid">
-            <div class="techitem" data-fade-in>
-              <div class="tech-sparkle"></div>
-              <div class="tech-sparkle"></div>
-              <div class="tech-sparkle"></div>
-              <div class="tech-header">
-                <div class="tech-icon">
-                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
-                </div>
-                <div class="tech-name">React.js</div>
-              </div>
-              <div class="tech-desc">Frontend library for building interactive user interfaces with component-based architecture.</div>
-              <div class="tech-progress">
-                <div class="tech-progress-bar" style="width: 90%"></div>
-              </div>
-            </div>
-      
-            <div class="techitem" data-fade-in>
-              <div class="tech-sparkle"></div>
-              <div class="tech-sparkle"></div>
-              <div class="tech-sparkle"></div>
-              <div class="tech-header">
-                <div class="tech-icon">
-                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2z"></path>
-                  </svg>
-                </div>
-                <div class="tech-name">Three.js</div>
-              </div>
-              <div class="tech-desc">3D graphics library for creating immersive web experiences and interactive animations.</div>
-              <div class="tech-progress">
-                <div class="tech-progress-bar" style="width: 85%"></div>
-              </div>
-            </div>
-      
-            <div class="techitem" data-fade-in>
-              <div class="tech-sparkle"></div>
-              <div class="tech-sparkle"></div>
-              <div class="tech-sparkle"></div>
-              <div class="tech-header">
-                <div class="tech-icon">
-                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                  </svg>
-                </div>
-                <div class="tech-name">GSAP</div>
-              </div>
-              <div class="tech-desc">Animation library for creating smooth, performant animations and interactive effects.</div>
-              <div class="tech-progress">
-                <div class="tech-progress-bar" style="width: 80%"></div>
-              </div>
-            </div>
-      
-            <div class="techitem" data-fade-in>
-              <div class="tech-sparkle"></div>
-              <div class="tech-sparkle"></div>
-              <div class="tech-sparkle"></div>
-              <div class="tech-header">
-                <div class="tech-icon">
-                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                    <path d="M2 2l7.586 7.586"></path>
-                    <circle cx="11" cy="11" r="2"></circle>
-                  </svg>
-                </div>
-                <div class="tech-name">Next.js</div>
-              </div>
-              <div class="tech-desc">React framework that enables server-side rendering and generating static websites.</div>
-              <div class="tech-progress">
-                <div class="tech-progress-bar" style="width: 88%"></div>
-              </div>
-            </div>
-      
-            <div class="techitem" data-fade-in>
-              <div class="tech-sparkle"></div>
-              <div class="tech-sparkle"></div>
-              <div class="tech-sparkle"></div>
-              <div class="tech-header">
-                <div class="tech-icon">
-                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <path d="M16 10a4 4 0 0 1-8 0"></path>
-                  </svg>
-                </div>
-                <div class="tech-name">Tailwind CSS</div>
-              </div>
-              <div class="tech-desc">Utility-first CSS framework for rapidly building custom user interfaces.</div>
-              <div class="tech-progress">
-                <div class="tech-progress-bar" style="width: 95%"></div>
-              </div>
-            </div>
-      
-            <div class="techitem" data-fade-in>
-              <div class="tech-sparkle"></div>
-              <div class="tech-sparkle"></div>
-              <div class="tech-sparkle"></div>
-              <div class="tech-header">
-                <div class="tech-icon">
-                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
-                    <line x1="16" y1="8" x2="2" y2="22"></line>
-                    <line x1="17.5" y1="15" x2="9" y2="15"></line>
-                  </svg>
-                </div>
-                <div class="tech-name">Framer Motion</div>
-              </div>
-              <div class="tech-desc">Production-ready motion library for React to create fluid animations with ease.</div>
-              <div class="tech-progress">
-                <div class="tech-progress-bar" style="width: 78%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      
-        <div class="hometech-orbits">
-          <div class="orbit"></div>
-          <div class="orbit"></div>
-          <div class="orbit"></div>
-        </div>
-      
-        <span class="hometech-line">
-          <span></span>
-        </span>
-      </section>
-      
       <section class="home__projects">
         <span class="home__projects__line right">
           <span></span>
@@ -1135,7 +790,86 @@
         </span>
       </section>
 
+      <section class="hometech">
+        <p class="tech-intro">
+          I have worked with a range of modern technologies to craft responsive, interactive, and user-focused web experiences.
+        </p>
+    
+        
+        <div class="hometechleft">
+          
+          <!-- Keep your grid layout here as it is -->
+          <!-- (React.js, Three.js, GSAP, etc...) -->
+        </div>
       
+        <div class="hometech-orbits">
+          <!-- Orbit divs (for effects if you use them) -->
+          <div class="orbit"></div>
+          <div class="orbit"></div>
+          <div class="orbit"></div>
+      
+          <!-- 👉 Insert Tech Sphere here -->
+          <span id="techSphere" class="tagcloud"></span>
+        </div>
+      
+        <span class="hometech-line"><span></span></span>
+      </section>
+      
+
+      <section class="home__contact">
+        <p class="home__contact__desc">
+          Got a question, proposal or project or want to work together on
+          something? Feel free to reach out.
+        </p>
+        <div class="line-wrapper">
+          <span class="home__projects__line left">
+            <span></span>
+          </span>
+        </div>
+
+        <div class="marquee">
+          <a
+            href="mailto:oluwadareseyii@gmail.com?subject=Lets%20work%20together!&body=Hello%2C%20I%20think%20we%20need%20you%20to%20work%20on%2Fcollaborate%20this%20particular%20product...%20Reach%20out%20as%20soon%20as%20you%20can."
+            class="marquee__wrap"
+          >
+            <div class="marquee__inner">
+              <span aria-hidden="true" class="inner-span">
+                <span
+                  class="slide-up"
+                  data-content="LET’S TALK — LET’S COLLABORATE — SAY HELLO — WANNA BE STARTING
+                SOMETHING?"
+                  aria-hidden="true"
+                ></span>
+                LET’S TALK — LET’S COLLABORATE — SAY HELLO — WANNA BE STARTING
+                SOMETHING?</span
+              >
+              <span class="inner-span">
+                <span
+                  class="slide-up"
+                  data-content="LET’S TALK — LET’S COLLABORATE — SAY HELLO — WANNA BE STARTING
+                SOMETHING?"
+                  aria-hidden="true"
+                ></span>
+                LET’S TALK — LET’S COLLABORATE — SAY HELLO — WANNA BE STARTING
+                SOMETHING?</span
+              >
+            </div>
+          </a>
+        </div>
+
+        <div class="line-wrapper">
+          <span class="home__projects__line right">
+            <span></span>
+          </span>
+        </div>
+
+        <div class="home__contact__email">
+          <button class="email">oluwadareseyii@gmail.com</button>
+          <div class="to-copy">
+            <span>Click To Copy</span>
+          </div>
+        </div>
+      </section>
 
       <footer class="home__footer" id="js-footer">
         <div class="home__footer__center">
@@ -1143,7 +877,7 @@
             <div class="link__flex">
               <div class="link__flex__inner">
                 <a
-                  href="https://x.com/twilight_UB"
+                  href="https://twitter.com/seyi__xo"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="c-button"
@@ -1157,7 +891,7 @@
                 </a>
 
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/seyi.motion/"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="c-button"
@@ -1175,7 +909,7 @@
             <div class="link__flex">
               <div class="link__flex__inner second">
                 <a
-                  href="https://github.com/bhanu-3333"
+                  href="https://github.com/oluwadareseyi"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="c-button"
@@ -1189,7 +923,7 @@
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/in/udaya-bhanu-s-3003972a6/"
+                  href="https://www.linkedin.com/in/oluwadareseyi/"
                   class="c-button"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -1206,7 +940,7 @@
           </div>
         </div>
         <div class="home__footer__left">
-          <p class="place">TAMILNADU, india</p>
+          <p class="place">MANCHESTER, UK</p>
           <div class="time">
             <span data-hour></span>
             <span class="flash">:</span>
@@ -1220,12 +954,31 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            bhanu
+            Isaac Fayemi
           </a>
         </p>
       </footer>
     </main>
 
     <script src="js/index.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js"></script>
+<script>
+  const myTags = [
+    'HTML', 'CSS', 'JavaScript',
+    'jQuery', 'Bulma CSS', 'Bootstrap',
+    'Node.js', 'Express.js', 'npm',
+    'Jest', 'GitHub', 'Heroku', 'git', 'Adobe Illustrator',
+    'MySQL', 'Sequelize', 'Adobe Photoshop'
+  ];
+
+  TagCloud('#techSphere', myTags, {
+    radius: 150,
+    maxSpeed: 'fast',
+    initSpeed: 'fast',
+    direction: 135,
+    keep: true
+  });
+</script>
+
   </body>
 </html>
