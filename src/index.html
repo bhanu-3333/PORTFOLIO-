@@ -60,12 +60,39 @@
       type="font/woff2"
       crossorigin
     />
+
+    
+
     <style>
+
+
+
+
       html {
   background-color: black;
   color: white;
   font-size: 20px;
 }
+
+
+
+
+.hands{
+  -webkit-backface-visibility: hidden;
+  margin-top: 140px;
+  width: 120px;height: 120px;
+  position: absolute;
+  background-color: #111;
+  border-radius:20px;
+  box-shadow:-1px -4px 0px 0px rgba(240,220,220,1);
+  -webkit-transform:rotate(45deg);
+  top:75%;left: 16%;
+  z-index: 1;
+  -webkit-animation:bodyAnim 1.5s infinite alternate;
+  -webkit-animation-timing-function:ease-out;
+}
+
+
 
 .tech-intro {
   font-size: 2 rem;
@@ -123,7 +150,13 @@
   </head>
 
   <body>
-    <main class="home" data-scroll-container>
+
+
+
+
+
+
+    <main id="mainContent" class="home" data-scroll-container>
       <nav class="home__nav">
         <div class="home__nav__left">
           <div class="nav__name" nav-anim>
@@ -963,6 +996,8 @@
     <script src="js/index.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js"></script>
 <script>
+
+
   const myTags = [
     'HTML', 'CSS', 'JavaScript',
     'jQuery', 'Bulma CSS', 'Bootstrap',
@@ -978,6 +1013,10 @@
     direction: 135,
     keep: true
   });
+
+
+
+  
 </script>
 
   </body>

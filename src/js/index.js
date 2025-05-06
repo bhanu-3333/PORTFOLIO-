@@ -237,6 +237,15 @@ document.querySelectorAll('.techitem').forEach(item => {
       particle.style.transform = `translate(${x}px, ${y}px)`;
     });
   });
+
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loader");
+    const main = document.getElementById("mainContent");
+    
+    // Only hide loader AFTER page is fully loaded
+    loader.style.display = "none";
+    main.style.display = "block";
+  });
   
   // Mouse move effect
   item.addEventListener('mousemove', (e) => {
