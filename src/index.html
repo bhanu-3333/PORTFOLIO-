@@ -76,20 +76,22 @@
   z-index: 1;
   -webkit-animation:bodyAnim 1.5s infinite alternate;
   -webkit-animation-timing-function:ease-out;
+  margin-bottom: 10px;
 }
 .tech-intro {
   font-size: 2.4rem;
   color: gray;
   max-width: 700px;
   text-align: center;
-  margin-top:50px;
+  margin-top:60px;
   margin-left:80px;
   font-weight: bolder;
+
 
 }
 
 .home__contact__desc{
-  margin-top:0px;
+  margin-bottom:0px;
 }
 
 .techitem:hover {
@@ -130,8 +132,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3rem 0;
+  padding: 5rem 0;
   margin-top: 0 px;
+  margin-bottom: 0px;
 }
 
     </style>
@@ -987,12 +990,13 @@
   ];
 
   TagCloud('#techSphere', myTags, {
-    radius: 190,
-    maxSpeed: 'fast',
-    initSpeed: 'fast',
-    direction: 135,
-    keep: true
-  });
+  radius: 220,
+  maxSpeed: 'normal',   // Medium
+  initSpeed: 'slow',    // Slow start
+  direction: 135,
+  keep: true
+});
+
 
 
 
