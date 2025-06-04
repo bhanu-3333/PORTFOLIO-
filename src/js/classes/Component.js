@@ -9,7 +9,7 @@ export default class Component {
     this.create();
   }
 
-  
+
   create() {
     if (this.selector instanceof HTMLElement) {
       this.element = this.selector;
@@ -18,7 +18,6 @@ export default class Component {
     }
 
     this.elements = {};
-
     Object.keys(this.selectorChildren).forEach((key) => {
       const entry = this.selectorChildren[key];
 
