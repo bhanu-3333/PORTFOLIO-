@@ -9,7 +9,6 @@ export default class Component {
     this.create();
   }
 
-
   create() {
     if (this.selector instanceof HTMLElement) {
       this.element = this.selector;
