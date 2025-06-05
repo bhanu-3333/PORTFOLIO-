@@ -15,7 +15,6 @@ export default class Component {
     } else {
       this.element = document.querySelector(this.selector);
     }
-
     this.elements = {};
     Object.keys(this.selectorChildren).forEach((key) => {
       const entry = this.selectorChildren[key];
