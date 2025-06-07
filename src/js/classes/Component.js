@@ -19,8 +19,6 @@ export default class Component {
     Object.keys(this.selectorChildren).forEach((key) => {
       const entry = this.selectorChildren[key];
 
-
-      
       if (
         entry instanceof HTMLElement ||
         entry instanceof NodeList ||
